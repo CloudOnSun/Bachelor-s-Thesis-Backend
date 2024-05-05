@@ -1,0 +1,38 @@
+-- CreateTable
+CREATE TABLE "rfs" (
+    "id" SERIAL NOT NULL,
+    "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "mode1" DOUBLE PRECISION,
+    "mode2" DOUBLE PRECISION,
+    "mode3" DOUBLE PRECISION,
+    "mode4" DOUBLE PRECISION,
+    "mode5" DOUBLE PRECISION,
+    "mode6" DOUBLE PRECISION,
+    "mode7" DOUBLE PRECISION,
+    "mode8" DOUBLE PRECISION,
+    "mode9" DOUBLE PRECISION,
+    "mode10" DOUBLE PRECISION,
+    "user_id" INTEGER NOT NULL,
+
+    CONSTRAINT "rfs_pkey" PRIMARY KEY ("id")
+);
+
+-- CreateTable
+CREATE TABLE "Damage" (
+    "id" SERIAL NOT NULL,
+    "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    "location1" DOUBLE PRECISION NOT NULL,
+    "location2" DOUBLE PRECISION NOT NULL,
+    "depth1" DOUBLE PRECISION NOT NULL,
+    "depth2" DOUBLE PRECISION NOT NULL,
+    "cost" DOUBLE PRECISION NOT NULL,
+    "rfs_id" INTEGER NOT NULL,
+
+    CONSTRAINT "Damage_pkey" PRIMARY KEY ("id")
+);
+
+-- AddForeignKey
+ALTER TABLE "rfs" ADD CONSTRAINT "rfs_user_id_fkey" FOREIGN KEY ("user_id") REFERENCES "user"("id") ON DELETE RESTRICT ON UPDATE CASCADE;
+
+-- AddForeignKey
+ALTER TABLE "Damage" ADD CONSTRAINT "Damage_rfs_id_fkey" FOREIGN KEY ("rfs_id") REFERENCES "rfs"("id") ON DELETE RESTRICT ON UPDATE CASCADE;

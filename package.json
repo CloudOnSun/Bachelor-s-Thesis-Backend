@@ -1,0 +1,42 @@
+{
+  "name": "serverlicenta",
+  "version": "1.0.0",
+  "description": "",
+  "main": "src/index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "npx ts-node src/index.ts",
+    "dev": "nodemon src/index.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "-": "^0.0.1",
+    "@koa/cors": "^5.0.0",
+    "@koa/router": "^12.0.1",
+    "@prisma/client": "^5.13.0",
+    "@types/bcryptjs": "^2.4.3",
+    "@types/jsonwebtoken": "^9.0.2",
+    "@types/koa": "^2.15.0",
+    "@types/koa-router": "^7.4.8",
+    "@types/nodemailer": "^6.4.15",
+    "ajv": "^8.13.0",
+    "bcryptjs": "^2.4.3",
+    "eslint": "^9.1.1",
+    "koa": "^2.15.3",
+    "koa-bodyparser": "^4.4.1",
+    "koa-router": "^12.0.1",
+    "nodemailer": "^6.9.13",
+    "nodemon": "^3.1.0",
+    "save-dev": "^0.0.1-security",
+    "ts-node": "^10.9.2"
+  },
+  "devDependencies": {
+    "@types/koa-bodyparser": "^4.3.12",
+    "eslint": "^9.1.1",
+    "jsonwebtoken": "^9.0.2",
+    "prisma": "^5.13.0",
+    "typescript": "^5.4.5"
+  }
+}

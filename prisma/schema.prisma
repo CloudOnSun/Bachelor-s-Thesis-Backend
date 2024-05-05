@@ -1,0 +1,52 @@
+datasource db {
+  url      = env("DATABASE_URL")
+  provider = "postgresql"
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now()) @map("created_at")
+  email     String   @unique
+  password  String
+  name      String
+  rfs       RFS[]
+
+  @@map("user")
+}
+
+model RFS {
+  id              Int      @id @default(autoincrement())
+  createdAt       DateTime @default(now()) @map("created_at")
+  mode1           Float?
+  mode2           Float?
+  mode3           Float?
+  mode4           Float?
+  mode5           Float?
+  mode6           Float?
+  mode7           Float?
+  mode8           Float?
+  mode9           Float?
+  mode10          Float?
+  user            User     @relation(fields: [userId], references: [id])
+  userId          Int      @map("user_id")
+  predictedCracks Damage[]
+
+  @@map("rfs")
+}
+
+model Damage {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now()) @map("created_at")
+  location1 Float
+  location2 Float
+  depth1    Float
+  depth2    Float
+  cost      Float
+  rfs       RFS      @relation(fields: [rfsId], references: [id])
+  rfsId     Int      @map("rfs_id")
+  @@map("damage")
+}
