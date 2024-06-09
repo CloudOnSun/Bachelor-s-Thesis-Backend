@@ -5,6 +5,7 @@ import {UserCreatInput} from "../types/UserCreatInput";
 export default class AuthRepository {
 
     private prisma = new PrismaClient()
+
     public async findUser(email: string): Promise<User> {
         return this.prisma.user.findUnique({
             where: {

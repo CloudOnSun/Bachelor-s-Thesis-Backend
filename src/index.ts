@@ -1,6 +1,6 @@
 import Koa from "koa"
 
-import bodyparser from "koa-bodyparser";
+import bodyparser from "koa-body";
 import authRouter from "./auth/routes/routes";
 import rfsRouter from "./rfs/routes/rfs-router";
 
@@ -10,7 +10,9 @@ const app = new Koa();
 const port = 3001;
 
 
-app.use(bodyparser())
+app.use(bodyparser({
+        multipart: true,
+    }))
     .use(cors())
     .use(authRouter.routes())
     .use(rfsRouter.routes())

@@ -4,7 +4,7 @@ import {Damage, RFS} from "@prisma/client";
 
 export default class EmailProvider {
 
-    public sendEmail(to: string, damage: Damage, rfsId: number) {
+    public sendEmail(to: string, damage: Damage, rfsId: number, rfsName: string) {
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
@@ -20,7 +20,7 @@ export default class EmailProvider {
             <div style="font-family: Arial, sans-serif; color: #333;">
                 <h2 style="color: #4A90E2;">Damage Assessment Results</h2>
                 <p>Hello,</p>
-                <p>We have completed the assessment of your submission for RFS #${rfsId}. Here are the details of the damages detected:</p>
+                <p>We have completed the assessment of your submission for RFS Test: ${rfsName}, #${rfsId}. Here are the details of the damages detected:</p>
                 <table style="width: 100%; border-collapse: collapse;">
                     <thead>
                         <tr style="background-color: #f2f2f2;">
